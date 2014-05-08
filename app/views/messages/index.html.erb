@@ -1,22 +1,21 @@
-<div class="message-window">
 <div class="row">
   <div class="col-lg-10">
-
-    <table class='table table-striped'>
-
-      <tbody>
-        <% @messages.each do |message| %>
-          <tr>
-            <td class="username"><%= message.username %></td>
-            <td><%= message.body %></td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
+    <div class="message-window">
+      <table class='table table-striped'>
+        <tbody>
+          <% @messages.each do |message| %>
+            <tr>
+              <td class="username"><%= message.username %></td>
+              <td><%= message.body %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
 
     <br>
 
-    <%= render partial: 'form' %>  
+    <%= render partial: 'form' %>
 
     </div>
     <div class="col-lg-2">
