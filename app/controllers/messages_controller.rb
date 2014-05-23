@@ -29,16 +29,15 @@ class MessagesController < ApplicationController
     @message = Message.new(message_params)
     @message.username = current_user.name
 
-    @message,save
-    #respond_to do |format|
-    #  if @message.save
-    #    format.html { redirect_to params[:redirect] || messages_path, notice: 'Message was successfully created.' }
-    #    format.json { render :show, status: :created, location: @message }
-    #  else
-    #    format.html { render :new }
-    #    format.json { render json: @message.errors, status: :unprocessable_entity }
-    #  end
-    #end
+    respond_to do |format|
+      if @message.save
+        format.html { redirect_to params[:redirect] || messages_path, notice: 'Message was successfully created.' }
+        format.json { render :show, status: :created, location: @message }
+      else
+        format.html { render :new }
+        format.json { render json: @message.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   # PATCH/PUT /messages/1

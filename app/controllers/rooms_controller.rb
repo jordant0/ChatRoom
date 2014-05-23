@@ -44,6 +44,12 @@ class RoomsController < ApplicationController
     end
   end
 
+  def delete_user
+    @user = User.find(name: current_user.name)
+    @user.destroy
+
+  end
+
   private
     def room_params
       params.require(:room).permit(:name)
