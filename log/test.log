@@ -1,0 +1,2602 @@
+  [1m[36m (11.2ms)[0m  [1mCREATE TABLE "rooms" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (10.4ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255)) 
+  [1m[36m (14.4ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35m (0.1ms)[0m  select sqlite_version(*)
+  [1m[36m (10.3ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35m (0.1ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (13.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140521193846')[0m
+  [1m[35m (13.8ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140521164224')
+  [1m[36m (18.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140520195805')[0m
+  [1m[35m (10.8ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140521141804')
+  [1m[36m (13.7ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140521141903')[0m
+  [1m[35m (8.9ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140507020704')
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+------------------------------------------
+RoomsControllerTest: test_should_get_index
+------------------------------------------
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.1ms)[0m  INSERT INTO "rooms" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", "2014-05-21 20:42:49.343254"], ["name", "MyRoom"], ["updated_at", "2014-05-21 20:42:49.343254"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by RoomsController#index as HTML
+Redirected to http://test.host/session/new
+Filter chain halted as :authenticate_user! rendered or redirected
+Completed 302 Found in 0ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.2ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+------------------------------------------
+RoomsControllerTest: test_should_get_index
+------------------------------------------
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.1ms)[0m  INSERT INTO "rooms" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", "2014-05-21 20:44:19.533439"], ["name", "MyRoom"], ["updated_at", "2014-05-21 20:44:19.533439"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+------------------------------------------
+RoomsControllerTest: test_should_get_index
+------------------------------------------
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.1ms)[0m  INSERT INTO "rooms" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", "2014-05-21 20:45:28.229360"], ["name", "MyRoom"], ["updated_at", "2014-05-21 20:45:28.229360"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("name") VALUES (?)[0m  [["name", "Batman"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by SessionsController#create as HTML
+  Parameters: {"name"=>"Batman"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."name" = 'Batman' LIMIT 1[0m
+Redirected to http://test.host/rooms
+Completed 302 Found in 5ms (ActiveRecord: 0.1ms)
+Processing by RoomsController#index as HTML
+  [1m[35mRoom Load (0.1ms)[0m  SELECT "rooms".* FROM "rooms"
+  Rendered rooms/index.html.erb within layouts/application (3.2ms)
+Completed 200 OK in 4919ms (Views: 4918.4ms | ActiveRecord: 0.1ms)
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+------------------------------------------
+RoomsControllerTest: test_should_get_index
+------------------------------------------
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.1ms)[0m  INSERT INTO "rooms" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", "2014-05-21 20:46:48.708244"], ["name", "MyRoom"], ["updated_at", "2014-05-21 20:46:48.708244"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("name") VALUES (?)[0m  [["name", "Batman"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by SessionsController#create as HTML
+  Parameters: {"name"=>"Batman"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."name" = 'Batman' LIMIT 1[0m
+Redirected to http://test.host/rooms
+Completed 302 Found in 5ms (ActiveRecord: 0.1ms)
+Processing by RoomsController#index as HTML
+  [1m[35mRoom Load (0.1ms)[0m  SELECT "rooms".* FROM "rooms"
+  Rendered rooms/index.html.erb within layouts/application (3.2ms)
+Completed 200 OK in 50ms (Views: 49.8ms | ActiveRecord: 0.1ms)
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+----------------------------------------
+RoomsControllerTest: test_should_get_new
+----------------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "rooms" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", "2014-05-21 20:46:48.802250"], ["name", "MyRoom"], ["updated_at", "2014-05-21 20:46:48.802250"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "users" ("name") VALUES (?)[0m  [["name", "Batman"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by SessionsController#create as HTML
+  Parameters: {"name"=>"Batman"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."name" = 'Batman' LIMIT 1[0m
+Redirected to http://test.host/rooms
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+Processing by RoomsController#new as HTML
+  Rendered rooms/_form.html.erb (11.1ms)
+Completed 200 OK in 40ms (Views: 39.2ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.2ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+-----------------------------------------------
+RoomsControllerTest: test_should_create_message
+-----------------------------------------------
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (22.3ms)[0m  INSERT INTO "rooms" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", "2014-05-21 20:47:59.777973"], ["name", "MyRoom"], ["updated_at", "2014-05-21 20:47:59.777973"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+------------------------------------------
+RoomsControllerTest: test_should_get_index
+------------------------------------------
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "rooms" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", "2014-05-21 20:47:59.809945"], ["name", "MyRoom"], ["updated_at", "2014-05-21 20:47:59.809945"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("name") VALUES (?)  [["name", "Batman"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by SessionsController#create as HTML
+  Parameters: {"name"=>"Batman"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."name" = 'Batman' LIMIT 1
+Redirected to http://test.host/rooms
+Completed 302 Found in 28ms (ActiveRecord: 0.2ms)
+Processing by RoomsController#index as HTML
+  [1m[36mRoom Load (0.1ms)[0m  [1mSELECT "rooms".* FROM "rooms"[0m
+Completed 200 OK in 52ms (Views: 51.0ms | ActiveRecord: 0.1ms)
+  [1m[35m (0.2ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+----------------------------------------
+RoomsControllerTest: test_should_get_new
+----------------------------------------
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "rooms" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", "2014-05-21 20:47:59.903847"], ["name", "MyRoom"], ["updated_at", "2014-05-21 20:47:59.903847"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "users" ("name") VALUES (?)  [["name", "Batman"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by SessionsController#create as HTML
+  Parameters: {"name"=>"Batman"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."name" = 'Batman' LIMIT 1
+Redirected to http://test.host/rooms
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+Processing by RoomsController#new as HTML
+  Rendered rooms/_form.html.erb (33.4ms)
+Completed 200 OK in 39ms (Views: 38.1ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+-----------------------------------------------
+RoomsControllerTest: test_should_create_message
+-----------------------------------------------
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (22.3ms)[0m  INSERT INTO "rooms" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", "2014-05-21 20:51:41.528218"], ["name", "MyRoom"], ["updated_at", "2014-05-21 20:51:41.528218"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "rooms"
+Processing by RoomsController#create as HTML
+  Parameters: {"room"=>{"room"=>"MyRoom"}}
+Redirected to http://test.host/session/new
+Filter chain halted as :authenticate_user! rendered or redirected
+Completed 302 Found in 0ms (ActiveRecord: 0.0ms)
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "rooms"[0m
+  [1m[35m (0.2ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+------------------------------------------
+RoomsControllerTest: test_should_get_index
+------------------------------------------
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "rooms" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", "2014-05-21 20:51:41.568294"], ["name", "MyRoom"], ["updated_at", "2014-05-21 20:51:41.568294"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("name") VALUES (?)  [["name", "Batman"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by SessionsController#create as HTML
+  Parameters: {"name"=>"Batman"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."name" = 'Batman' LIMIT 1
+Redirected to http://test.host/rooms
+Completed 302 Found in 7ms (ActiveRecord: 0.1ms)
+Processing by RoomsController#index as HTML
+  [1m[36mRoom Load (0.1ms)[0m  [1mSELECT "rooms".* FROM "rooms"[0m
+Completed 200 OK in 77ms (Views: 76.0ms | ActiveRecord: 0.1ms)
+  [1m[35m (0.2ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+----------------------------------------
+RoomsControllerTest: test_should_get_new
+----------------------------------------
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "rooms" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", "2014-05-21 20:51:41.667540"], ["name", "MyRoom"], ["updated_at", "2014-05-21 20:51:41.667540"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "users" ("name") VALUES (?)  [["name", "Batman"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by SessionsController#create as HTML
+  Parameters: {"name"=>"Batman"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."name" = 'Batman' LIMIT 1
+Redirected to http://test.host/rooms
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+Processing by RoomsController#new as HTML
+  Rendered rooms/_form.html.erb (10.1ms)
+Completed 200 OK in 15ms (Views: 15.0ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+--------------------------------------------
+RoomsControllerTest: test_should_create_room
+--------------------------------------------
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (22.3ms)[0m  INSERT INTO "rooms" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", "2014-05-21 20:52:29.939770"], ["name", "MyRoom"], ["updated_at", "2014-05-21 20:52:29.939770"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "rooms"
+Processing by RoomsController#create as HTML
+  Parameters: {"room"=>{"room"=>"MyRoom"}}
+Redirected to http://test.host/session/new
+Filter chain halted as :authenticate_user! rendered or redirected
+Completed 302 Found in 0ms (ActiveRecord: 0.0ms)
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "rooms"[0m
+  [1m[35m (0.2ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+------------------------------------------
+RoomsControllerTest: test_should_get_index
+------------------------------------------
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "rooms" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", "2014-05-21 20:52:29.978608"], ["name", "MyRoom"], ["updated_at", "2014-05-21 20:52:29.978608"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("name") VALUES (?)  [["name", "Batman"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by SessionsController#create as HTML
+  Parameters: {"name"=>"Batman"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."name" = 'Batman' LIMIT 1
+Redirected to http://test.host/rooms
+Completed 302 Found in 6ms (ActiveRecord: 0.1ms)
+Processing by RoomsController#index as HTML
+  [1m[36mRoom Load (0.2ms)[0m  [1mSELECT "rooms".* FROM "rooms"[0m
+Completed 200 OK in 79ms (Views: 78.3ms | ActiveRecord: 0.2ms)
+  [1m[35m (0.2ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+----------------------------------------
+RoomsControllerTest: test_should_get_new
+----------------------------------------
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "rooms" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", "2014-05-21 20:52:30.084426"], ["name", "MyRoom"], ["updated_at", "2014-05-21 20:52:30.084426"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "users" ("name") VALUES (?)  [["name", "Batman"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by SessionsController#create as HTML
+  Parameters: {"name"=>"Batman"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."name" = 'Batman' LIMIT 1
+Redirected to http://test.host/rooms
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+Processing by RoomsController#new as HTML
+  Rendered rooms/_form.html.erb (10.1ms)
+Completed 200 OK in 15ms (Views: 15.0ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+--------------------------------------------
+RoomsControllerTest: test_should_create_room
+--------------------------------------------
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (22.1ms)[0m  INSERT INTO "rooms" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", "2014-05-21 20:53:20.462940"], ["name", "MyRoom"], ["updated_at", "2014-05-21 20:53:20.462940"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("name") VALUES (?)[0m  [["name", "Batman"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by SessionsController#create as HTML
+  Parameters: {"name"=>"Batman"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."name" = 'Batman' LIMIT 1[0m
+Redirected to http://test.host/rooms
+Completed 302 Found in 5ms (ActiveRecord: 0.1ms)
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "rooms"
+Processing by RoomsController#create as HTML
+  Parameters: {"room"=>{"room"=>"MyRoom"}}
+Unpermitted parameters: room
+  [1m[36mRoom Load (0.1ms)[0m  [1mSELECT  "rooms".* FROM "rooms"  LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/rooms
+Completed 302 Found in 2ms (ActiveRecord: 0.2ms)
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "rooms"
+  [1m[36m (0.3ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+------------------------------------------
+RoomsControllerTest: test_should_get_index
+------------------------------------------
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "rooms" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", "2014-05-21 20:53:20.515577"], ["name", "MyRoom"], ["updated_at", "2014-05-21 20:53:20.515577"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "users" ("name") VALUES (?)[0m  [["name", "Batman"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by SessionsController#create as HTML
+  Parameters: {"name"=>"Batman"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."name" = 'Batman' LIMIT 1[0m
+Redirected to http://test.host/rooms
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+Processing by RoomsController#index as HTML
+  [1m[35mRoom Load (0.2ms)[0m  SELECT "rooms".* FROM "rooms"
+Completed 200 OK in 85ms (Views: 84.1ms | ActiveRecord: 0.2ms)
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+----------------------------------------
+RoomsControllerTest: test_should_get_new
+----------------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "rooms" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", "2014-05-21 20:53:20.609309"], ["name", "MyRoom"], ["updated_at", "2014-05-21 20:53:20.609309"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "users" ("name") VALUES (?)[0m  [["name", "Batman"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by SessionsController#create as HTML
+  Parameters: {"name"=>"Batman"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."name" = 'Batman' LIMIT 1[0m
+Redirected to http://test.host/rooms
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+Processing by RoomsController#new as HTML
+  Rendered rooms/_form.html.erb (10.2ms)
+Completed 200 OK in 16ms (Views: 15.1ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.2ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+--------------------------------------------
+RoomsControllerTest: test_should_create_room
+--------------------------------------------
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (22.5ms)[0m  INSERT INTO "rooms" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", "2014-05-21 20:56:41.379697"], ["name", "MyRoom"], ["updated_at", "2014-05-21 20:56:41.379697"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("name") VALUES (?)[0m  [["name", "Batman"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by SessionsController#create as HTML
+  Parameters: {"name"=>"Batman"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."name" = 'Batman' LIMIT 1[0m
+Redirected to http://test.host/rooms
+Completed 302 Found in 5ms (ActiveRecord: 0.2ms)
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "rooms"
+Processing by RoomsController#create as HTML
+  Parameters: {"room"=>{"room"=>"MyRoom"}}
+Unpermitted parameters: room
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "rooms" ("created_at", "updated_at") VALUES (?, ?)  [["created_at", "2014-05-21 20:56:41.423575"], ["updated_at", "2014-05-21 20:56:41.423575"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/rooms
+Completed 302 Found in 2ms (ActiveRecord: 0.2ms)
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "rooms"
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+------------------------------------------
+RoomsControllerTest: test_should_get_index
+------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "rooms" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", "2014-05-21 20:56:41.427236"], ["name", "MyRoom"], ["updated_at", "2014-05-21 20:56:41.427236"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "users" ("name") VALUES (?)[0m  [["name", "Batman"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by SessionsController#create as HTML
+  Parameters: {"name"=>"Batman"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."name" = 'Batman' LIMIT 1[0m
+Redirected to http://test.host/rooms
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+Processing by RoomsController#index as HTML
+  [1m[35mRoom Load (0.1ms)[0m  SELECT "rooms".* FROM "rooms"
+Completed 200 OK in 74ms (Views: 72.8ms | ActiveRecord: 0.1ms)
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+----------------------------------------
+RoomsControllerTest: test_should_get_new
+----------------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "rooms" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", "2014-05-21 20:56:41.507440"], ["name", "MyRoom"], ["updated_at", "2014-05-21 20:56:41.507440"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "users" ("name") VALUES (?)[0m  [["name", "Batman"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by SessionsController#create as HTML
+  Parameters: {"name"=>"Batman"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."name" = 'Batman' LIMIT 1[0m
+Redirected to http://test.host/rooms
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+Processing by RoomsController#new as HTML
+  Rendered rooms/_form.html.erb (10.1ms)
+Completed 200 OK in 16ms (Views: 15.4ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.2ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+--------------------------------------------
+RoomsControllerTest: test_should_create_room
+--------------------------------------------
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (22.1ms)[0m  INSERT INTO "rooms" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", "2014-05-21 20:57:20.386612"], ["name", "MyRoom"], ["updated_at", "2014-05-21 20:57:20.386612"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("name") VALUES (?)[0m  [["name", "Batman"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by SessionsController#create as HTML
+  Parameters: {"name"=>"Batman"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."name" = 'Batman' LIMIT 1[0m
+Redirected to http://test.host/rooms
+Completed 302 Found in 5ms (ActiveRecord: 0.1ms)
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "rooms"
+Processing by RoomsController#create as HTML
+  Parameters: {"room"=>{"room"=>"MyRoom"}}
+Unpermitted parameters: room
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "rooms" ("created_at", "updated_at") VALUES (?, ?)  [["created_at", "2014-05-21 20:57:20.429831"], ["updated_at", "2014-05-21 20:57:20.429831"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/rooms
+Completed 302 Found in 2ms (ActiveRecord: 0.2ms)
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "rooms"
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+------------------------------------------
+RoomsControllerTest: test_should_get_index
+------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "rooms" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", "2014-05-21 20:57:20.433145"], ["name", "MyRoom"], ["updated_at", "2014-05-21 20:57:20.433145"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "users" ("name") VALUES (?)[0m  [["name", "Batman"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by SessionsController#create as HTML
+  Parameters: {"name"=>"Batman"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."name" = 'Batman' LIMIT 1[0m
+Redirected to http://test.host/rooms
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+Processing by RoomsController#index as HTML
+  [1m[35mRoom Load (0.1ms)[0m  SELECT "rooms".* FROM "rooms"
+Completed 200 OK in 73ms (Views: 72.6ms | ActiveRecord: 0.1ms)
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+----------------------------------------
+RoomsControllerTest: test_should_get_new
+----------------------------------------
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "rooms" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", "2014-05-21 20:57:20.513368"], ["name", "MyRoom"], ["updated_at", "2014-05-21 20:57:20.513368"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "users" ("name") VALUES (?)[0m  [["name", "Batman"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by SessionsController#create as HTML
+  Parameters: {"name"=>"Batman"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."name" = 'Batman' LIMIT 1[0m
+Redirected to http://test.host/rooms
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+Processing by RoomsController#new as HTML
+  Rendered rooms/_form.html.erb (10.1ms)
+Completed 200 OK in 15ms (Views: 15.0ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.2ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+--------------------------------------------
+RoomsControllerTest: test_should_create_room
+--------------------------------------------
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.1ms)[0m  INSERT INTO "rooms" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", "2014-05-21 21:01:06.713713"], ["name", "MyRoom"], ["updated_at", "2014-05-21 21:01:06.713713"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("name") VALUES (?)[0m  [["name", "Batman"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by SessionsController#create as HTML
+  Parameters: {"name"=>"Batman"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."name" = 'Batman' LIMIT 1[0m
+Redirected to http://test.host/rooms
+Completed 302 Found in 5ms (ActiveRecord: 0.1ms)
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "rooms"
+Processing by RoomsController#create as HTML
+  Parameters: {"room"=>{"room"=>"MyRoom"}}
+Unpermitted parameters: room
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "rooms" ("created_at", "updated_at") VALUES (?, ?)  [["created_at", "2014-05-21 21:01:06.757020"], ["updated_at", "2014-05-21 21:01:06.757020"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/rooms
+Completed 302 Found in 2ms (ActiveRecord: 0.2ms)
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "rooms"
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+------------------------------------------
+RoomsControllerTest: test_should_get_index
+------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "rooms" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", "2014-05-21 21:01:06.760384"], ["name", "MyRoom"], ["updated_at", "2014-05-21 21:01:06.760384"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "users" ("name") VALUES (?)[0m  [["name", "Batman"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by SessionsController#create as HTML
+  Parameters: {"name"=>"Batman"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."name" = 'Batman' LIMIT 1[0m
+Redirected to http://test.host/rooms
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+Processing by RoomsController#index as HTML
+  [1m[35mRoom Load (0.1ms)[0m  SELECT "rooms".* FROM "rooms"
+Completed 200 OK in 51ms (Views: 49.9ms | ActiveRecord: 0.1ms)
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+----------------------------------------
+RoomsControllerTest: test_should_get_new
+----------------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "rooms" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", "2014-05-21 21:01:06.817539"], ["name", "MyRoom"], ["updated_at", "2014-05-21 21:01:06.817539"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "users" ("name") VALUES (?)[0m  [["name", "Batman"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by SessionsController#create as HTML
+  Parameters: {"name"=>"Batman"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."name" = 'Batman' LIMIT 1[0m
+Redirected to http://test.host/rooms
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+Processing by RoomsController#new as HTML
+  Rendered rooms/_form.html.erb (10.4ms)
+Completed 200 OK in 38ms (Views: 37.9ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.2ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+------------------------------------------
+RoomsControllerTest: test_should_show_room
+------------------------------------------
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "rooms" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", "2014-05-21 21:01:06.862600"], ["name", "MyRoom"], ["updated_at", "2014-05-21 21:01:06.862600"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "users" ("name") VALUES (?)  [["name", "Batman"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by SessionsController#create as HTML
+  Parameters: {"name"=>"Batman"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."name" = 'Batman' LIMIT 1
+Redirected to http://test.host/rooms
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRoom Load (0.1ms)[0m  [1mSELECT  "rooms".* FROM "rooms"  WHERE "rooms"."id" = ? LIMIT 1[0m  [["id", 1]]
+Completed 500 Internal Server Error in 36ms
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+--------------------------------------------
+RoomsControllerTest: test_should_create_room
+--------------------------------------------
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+------------------------------------------
+RoomsControllerTest: test_should_get_index
+------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+----------------------------------------
+RoomsControllerTest: test_should_get_new
+----------------------------------------
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+------------------------------------------
+RoomsControllerTest: test_should_show_room
+------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+--------------------------------------------
+RoomsControllerTest: test_should_create_room
+--------------------------------------------
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.1ms)[0m  INSERT INTO "rooms" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", "2014-05-21 21:04:30.245154"], ["name", "MyRoom"], ["updated_at", "2014-05-21 21:04:30.245154"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("name") VALUES (?)[0m  [["name", "Batman"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by SessionsController#create as HTML
+  Parameters: {"name"=>"Batman"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."name" = 'Batman' LIMIT 1[0m
+Redirected to http://test.host/rooms
+Completed 302 Found in 5ms (ActiveRecord: 0.1ms)
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "rooms"
+Processing by RoomsController#create as HTML
+  Parameters: {"room"=>{"room"=>"MyRoom"}}
+Unpermitted parameters: room
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "rooms" ("created_at", "updated_at") VALUES (?, ?)  [["created_at", "2014-05-21 21:04:30.289181"], ["updated_at", "2014-05-21 21:04:30.289181"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/rooms
+Completed 302 Found in 2ms (ActiveRecord: 0.2ms)
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "rooms"
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+------------------------------------------
+RoomsControllerTest: test_should_get_index
+------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "rooms" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", "2014-05-21 21:04:30.292691"], ["name", "MyRoom"], ["updated_at", "2014-05-21 21:04:30.292691"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "users" ("name") VALUES (?)[0m  [["name", "Batman"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by SessionsController#create as HTML
+  Parameters: {"name"=>"Batman"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."name" = 'Batman' LIMIT 1[0m
+Redirected to http://test.host/rooms
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+Processing by RoomsController#index as HTML
+  [1m[35mRoom Load (0.1ms)[0m  SELECT "rooms".* FROM "rooms"
+Completed 200 OK in 51ms (Views: 50.6ms | ActiveRecord: 0.1ms)
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+----------------------------------------
+RoomsControllerTest: test_should_get_new
+----------------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "rooms" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", "2014-05-21 21:04:30.350760"], ["name", "MyRoom"], ["updated_at", "2014-05-21 21:04:30.350760"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "users" ("name") VALUES (?)[0m  [["name", "Batman"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by SessionsController#create as HTML
+  Parameters: {"name"=>"Batman"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."name" = 'Batman' LIMIT 1[0m
+Redirected to http://test.host/rooms
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+Processing by RoomsController#new as HTML
+  Rendered rooms/_form.html.erb (10.6ms)
+Completed 200 OK in 39ms (Views: 38.5ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.2ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+------------------------------------------
+RoomsControllerTest: test_should_show_room
+------------------------------------------
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "rooms" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", "2014-05-21 21:04:30.396496"], ["name", "MyRoom"], ["updated_at", "2014-05-21 21:04:30.396496"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "users" ("name") VALUES (?)  [["name", "Batman"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by SessionsController#create as HTML
+  Parameters: {"name"=>"Batman"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."name" = 'Batman' LIMIT 1
+Redirected to http://test.host/rooms
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRoom Load (0.1ms)[0m  [1mSELECT  "rooms".* FROM "rooms"  WHERE "rooms"."id" = ? LIMIT 1[0m  [["id", 1]]
+Completed 500 Internal Server Error in 37ms
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (11.7ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35m (0.2ms)[0m  select sqlite_version(*)
+  [1m[36m (12.4ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.3ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Migrating to CreateMessages (20140507020704)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  CREATE TABLE "messages" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "body" text, "username" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20140507020704"]]
+  [1m[35m (10.7ms)[0m  commit transaction
+Migrating to CreateUsers (20140520195805)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255)) 
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20140520195805"]]
+  [1m[35m (11.1ms)[0m  commit transaction
+Migrating to RemoveUsernameFromUser (20140521141804)
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.7ms)[0m  CREATE TEMPORARY TABLE "ausers" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255)) 
+  [1m[36m (0.1ms)[0m  [1mSELECT * FROM "users"[0m
+  [1m[35m (0.5ms)[0m  DROP TABLE "users"
+  [1m[36m (0.3ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255)) [0m
+  [1m[35m (0.1ms)[0m  SELECT * FROM "ausers"
+  [1m[36m (0.4ms)[0m  [1mDROP TABLE "ausers"[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20140521141804"]]
+  [1m[36m (11.0ms)[0m  [1mcommit transaction[0m
+Migrating to AddNameToUser (20140521141903)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mALTER TABLE "users" ADD "name" varchar(255)[0m
+SQLite3::SQLException: duplicate column name: name: ALTER TABLE "users" ADD "name" varchar(255)
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateRooms (20140521164224)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.4ms)[0m  [1mCREATE TABLE "rooms" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (1.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20140521164224"]]
+  [1m[36m (10.8ms)[0m  [1mcommit transaction[0m
+Migrating to AddRoomToMessage (20140521193846)
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36m (0.6ms)[0m  [1mALTER TABLE "messages" ADD "room_id" integer[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20140521193846"]]
+  [1m[36m (10.4ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+--------------------------------------------
+RoomsControllerTest: test_should_create_room
+--------------------------------------------
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.1ms)[0m  INSERT INTO "rooms" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", "2014-05-21 21:25:31.389803"], ["name", "MyRoom"], ["updated_at", "2014-05-21 21:25:31.389803"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("name") VALUES (?)[0m  [["name", "Batman"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by SessionsController#create as HTML
+  Parameters: {"name"=>"Batman"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."name" = 'Batman' LIMIT 1[0m
+Redirected to http://test.host/rooms
+Completed 302 Found in 5ms (ActiveRecord: 0.1ms)
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "rooms"
+Processing by RoomsController#create as HTML
+  Parameters: {"room"=>{"room"=>"MyRoom"}}
+Unpermitted parameters: room
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "rooms" ("created_at", "updated_at") VALUES (?, ?)  [["created_at", "2014-05-21 21:25:31.433272"], ["updated_at", "2014-05-21 21:25:31.433272"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/rooms
+Completed 302 Found in 2ms (ActiveRecord: 0.2ms)
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "rooms"
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+------------------------------------------
+RoomsControllerTest: test_should_get_index
+------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "rooms" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", "2014-05-21 21:25:31.436613"], ["name", "MyRoom"], ["updated_at", "2014-05-21 21:25:31.436613"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "users" ("name") VALUES (?)[0m  [["name", "Batman"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by SessionsController#create as HTML
+  Parameters: {"name"=>"Batman"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."name" = 'Batman' LIMIT 1[0m
+Redirected to http://test.host/rooms
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+Processing by RoomsController#index as HTML
+  [1m[35mRoom Load (0.1ms)[0m  SELECT "rooms".* FROM "rooms"
+Completed 200 OK in 52ms (Views: 51.2ms | ActiveRecord: 0.1ms)
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+----------------------------------------
+RoomsControllerTest: test_should_get_new
+----------------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "rooms" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", "2014-05-21 21:25:31.494943"], ["name", "MyRoom"], ["updated_at", "2014-05-21 21:25:31.494943"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "users" ("name") VALUES (?)[0m  [["name", "Batman"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by SessionsController#create as HTML
+  Parameters: {"name"=>"Batman"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."name" = 'Batman' LIMIT 1[0m
+Redirected to http://test.host/rooms
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+Processing by RoomsController#new as HTML
+  Rendered rooms/_form.html.erb (10.4ms)
+Completed 200 OK in 39ms (Views: 38.1ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.2ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+------------------------------------------
+RoomsControllerTest: test_should_show_room
+------------------------------------------
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "rooms" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", "2014-05-21 21:25:31.540261"], ["name", "MyRoom"], ["updated_at", "2014-05-21 21:25:31.540261"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "users" ("name") VALUES (?)  [["name", "Batman"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by SessionsController#create as HTML
+  Parameters: {"name"=>"Batman"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."name" = 'Batman' LIMIT 1
+Redirected to http://test.host/rooms
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRoom Load (0.1ms)[0m  [1mSELECT  "rooms".* FROM "rooms"  WHERE "rooms"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mMessage Load (0.1ms)[0m  SELECT "messages".* FROM "messages"  WHERE "messages"."room_id" = ?  [["room_id", 1]]
+  Rendered messages/_form.html.erb (28.9ms)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 71ms (Views: 33.1ms | ActiveRecord: 0.7ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+--------------------------------------------
+RoomsControllerTest: test_should_create_room
+--------------------------------------------
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.5ms)[0m  INSERT INTO "rooms" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", "2014-05-21 21:34:11.469068"], ["name", "MyRoom"], ["updated_at", "2014-05-21 21:34:11.469068"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("name") VALUES (?)[0m  [["name", "Batman"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by SessionsController#create as HTML
+  Parameters: {"name"=>"Batman"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."name" = 'Batman' LIMIT 1[0m
+Redirected to http://test.host/rooms
+Completed 302 Found in 6ms (ActiveRecord: 0.1ms)
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "rooms"
+Processing by RoomsController#create as HTML
+  Parameters: {"room"=>{"room"=>"MyRoom"}}
+Unpermitted parameters: room
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "rooms" ("created_at", "updated_at") VALUES (?, ?)  [["created_at", "2014-05-21 21:34:11.514815"], ["updated_at", "2014-05-21 21:34:11.514815"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/rooms
+Completed 302 Found in 2ms (ActiveRecord: 0.2ms)
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "rooms"
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+---------------------------------------------
+RoomsControllerTest: test_should_destroy_room
+---------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "rooms" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", "2014-05-21 21:34:11.518259"], ["name", "MyRoom"], ["updated_at", "2014-05-21 21:34:11.518259"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "users" ("name") VALUES (?)[0m  [["name", "Batman"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by SessionsController#create as HTML
+  Parameters: {"name"=>"Batman"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."name" = 'Batman' LIMIT 1[0m
+Redirected to http://test.host/rooms
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "rooms"
+Processing by RoomsController#destroy as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRoom Load (0.1ms)[0m  [1mSELECT  "rooms".* FROM "rooms"  WHERE "rooms"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mDELETE FROM "rooms" WHERE "rooms"."id" = ?[0m  [["id", 1]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/rooms
+Completed 302 Found in 2ms (ActiveRecord: 0.3ms)
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "rooms"[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+------------------------------------------
+RoomsControllerTest: test_should_get_index
+------------------------------------------
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "rooms" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", "2014-05-21 21:34:11.527404"], ["name", "MyRoom"], ["updated_at", "2014-05-21 21:34:11.527404"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "users" ("name") VALUES (?)  [["name", "Batman"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by SessionsController#create as HTML
+  Parameters: {"name"=>"Batman"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."name" = 'Batman' LIMIT 1
+Redirected to http://test.host/rooms
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+Processing by RoomsController#index as HTML
+  [1m[36mRoom Load (0.1ms)[0m  [1mSELECT "rooms".* FROM "rooms"[0m
+Completed 200 OK in 77ms (Views: 75.9ms | ActiveRecord: 0.1ms)
+  [1m[35m (0.2ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+----------------------------------------
+RoomsControllerTest: test_should_get_new
+----------------------------------------
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "rooms" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", "2014-05-21 21:34:11.611155"], ["name", "MyRoom"], ["updated_at", "2014-05-21 21:34:11.611155"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "users" ("name") VALUES (?)  [["name", "Batman"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by SessionsController#create as HTML
+  Parameters: {"name"=>"Batman"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."name" = 'Batman' LIMIT 1
+Redirected to http://test.host/rooms
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+Processing by RoomsController#new as HTML
+  Rendered rooms/_form.html.erb (10.9ms)
+Completed 200 OK in 17ms (Views: 16.3ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+------------------------------------------
+RoomsControllerTest: test_should_show_room
+------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "rooms" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", "2014-05-21 21:34:11.635222"], ["name", "MyRoom"], ["updated_at", "2014-05-21 21:34:11.635222"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "users" ("name") VALUES (?)[0m  [["name", "Batman"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by SessionsController#create as HTML
+  Parameters: {"name"=>"Batman"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."name" = 'Batman' LIMIT 1[0m
+Redirected to http://test.host/rooms
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mRoom Load (0.1ms)[0m  SELECT  "rooms".* FROM "rooms"  WHERE "rooms"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mMessage Load (0.1ms)[0m  [1mSELECT "messages".* FROM "messages"  WHERE "messages"."room_id" = ?[0m  [["room_id", 1]]
+  Rendered messages/_form.html.erb (7.2ms)
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users"
+Completed 200 OK in 75ms (Views: 11.3ms | ActiveRecord: 0.6ms)
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+--------------------------------------------
+RoomsControllerTest: test_should_update_room
+--------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "rooms" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", "2014-05-21 21:34:11.717518"], ["name", "MyRoom"], ["updated_at", "2014-05-21 21:34:11.717518"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "users" ("name") VALUES (?)[0m  [["name", "Batman"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by SessionsController#create as HTML
+  Parameters: {"name"=>"Batman"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."name" = 'Batman' LIMIT 1[0m
+Redirected to http://test.host/rooms
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+Processing by RoomsController#update as HTML
+  Parameters: {"room"=>{"name"=>"MyRoom"}, "id"=>"1"}
+Completed 500 Internal Server Error in 0ms
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+--------------------------------------------
+RoomsControllerTest: test_should_create_room
+--------------------------------------------
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.4ms)[0m  INSERT INTO "rooms" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", "2014-05-21 21:35:34.206025"], ["name", "MyRoom"], ["updated_at", "2014-05-21 21:35:34.206025"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("name") VALUES (?)[0m  [["name", "Batman"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by SessionsController#create as HTML
+  Parameters: {"name"=>"Batman"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."name" = 'Batman' LIMIT 1[0m
+Redirected to http://test.host/rooms
+Completed 302 Found in 5ms (ActiveRecord: 0.1ms)
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "rooms"
+Processing by RoomsController#create as HTML
+  Parameters: {"room"=>{"room"=>"MyRoom"}}
+Unpermitted parameters: room
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "rooms" ("created_at", "updated_at") VALUES (?, ?)  [["created_at", "2014-05-21 21:35:34.250236"], ["updated_at", "2014-05-21 21:35:34.250236"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/rooms
+Completed 302 Found in 2ms (ActiveRecord: 0.2ms)
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "rooms"
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+---------------------------------------------
+RoomsControllerTest: test_should_destroy_room
+---------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "rooms" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", "2014-05-21 21:35:34.253603"], ["name", "MyRoom"], ["updated_at", "2014-05-21 21:35:34.253603"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "users" ("name") VALUES (?)[0m  [["name", "Batman"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by SessionsController#create as HTML
+  Parameters: {"name"=>"Batman"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."name" = 'Batman' LIMIT 1[0m
+Redirected to http://test.host/rooms
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "rooms"
+Processing by RoomsController#destroy as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRoom Load (0.1ms)[0m  [1mSELECT  "rooms".* FROM "rooms"  WHERE "rooms"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mDELETE FROM "rooms" WHERE "rooms"."id" = ?[0m  [["id", 1]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/rooms
+Completed 302 Found in 2ms (ActiveRecord: 0.3ms)
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "rooms"[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+------------------------------------------
+RoomsControllerTest: test_should_get_index
+------------------------------------------
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "rooms" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", "2014-05-21 21:35:34.262757"], ["name", "MyRoom"], ["updated_at", "2014-05-21 21:35:34.262757"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "users" ("name") VALUES (?)  [["name", "Batman"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by SessionsController#create as HTML
+  Parameters: {"name"=>"Batman"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."name" = 'Batman' LIMIT 1
+Redirected to http://test.host/rooms
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+Processing by RoomsController#index as HTML
+  [1m[36mRoom Load (0.1ms)[0m  [1mSELECT "rooms".* FROM "rooms"[0m
+Completed 200 OK in 77ms (Views: 76.5ms | ActiveRecord: 0.1ms)
+  [1m[35m (0.2ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+----------------------------------------
+RoomsControllerTest: test_should_get_new
+----------------------------------------
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "rooms" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", "2014-05-21 21:35:34.346995"], ["name", "MyRoom"], ["updated_at", "2014-05-21 21:35:34.346995"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "users" ("name") VALUES (?)  [["name", "Batman"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by SessionsController#create as HTML
+  Parameters: {"name"=>"Batman"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."name" = 'Batman' LIMIT 1
+Redirected to http://test.host/rooms
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+Processing by RoomsController#new as HTML
+  Rendered rooms/_form.html.erb (10.5ms)
+Completed 200 OK in 16ms (Views: 15.9ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+------------------------------------------
+RoomsControllerTest: test_should_show_room
+------------------------------------------
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "rooms" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", "2014-05-21 21:35:34.370719"], ["name", "MyRoom"], ["updated_at", "2014-05-21 21:35:34.370719"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "users" ("name") VALUES (?)[0m  [["name", "Batman"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by SessionsController#create as HTML
+  Parameters: {"name"=>"Batman"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."name" = 'Batman' LIMIT 1[0m
+Redirected to http://test.host/rooms
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mRoom Load (0.1ms)[0m  SELECT  "rooms".* FROM "rooms"  WHERE "rooms"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mMessage Load (0.1ms)[0m  [1mSELECT "messages".* FROM "messages"  WHERE "messages"."room_id" = ?[0m  [["room_id", 1]]
+  Rendered messages/_form.html.erb (7.3ms)
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users"
+Completed 200 OK in 74ms (Views: 11.5ms | ActiveRecord: 0.6ms)
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+--------------------------------------------
+RoomsControllerTest: test_should_create_room
+--------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (2.0ms)[0m  INSERT INTO "rooms" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", "2014-05-22 13:48:08.666730"], ["name", "MyRoom"], ["updated_at", "2014-05-22 13:48:08.666730"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("name") VALUES (?)[0m  [["name", "Batman"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by SessionsController#create as HTML
+  Parameters: {"name"=>"Batman"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."name" = 'Batman' LIMIT 1[0m
+Redirected to http://test.host/rooms
+Completed 302 Found in 5ms (ActiveRecord: 0.1ms)
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "rooms"
+Processing by RoomsController#create as HTML
+  Parameters: {"room"=>{"room"=>"MyRoom"}}
+Unpermitted parameters: room
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "rooms" ("created_at", "updated_at") VALUES (?, ?)  [["created_at", "2014-05-22 13:48:08.710665"], ["updated_at", "2014-05-22 13:48:08.710665"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/rooms
+Completed 302 Found in 2ms (ActiveRecord: 0.2ms)
+  [1m[35m (0.0ms)[0m  SELECT COUNT(*) FROM "rooms"
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+---------------------------------------------
+RoomsControllerTest: test_should_destroy_room
+---------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "rooms" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", "2014-05-22 13:48:08.713889"], ["name", "MyRoom"], ["updated_at", "2014-05-22 13:48:08.713889"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "users" ("name") VALUES (?)[0m  [["name", "Batman"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by SessionsController#create as HTML
+  Parameters: {"name"=>"Batman"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."name" = 'Batman' LIMIT 1[0m
+Redirected to http://test.host/rooms
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "rooms"
+Processing by RoomsController#destroy as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRoom Load (0.1ms)[0m  [1mSELECT  "rooms".* FROM "rooms"  WHERE "rooms"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mDELETE FROM "rooms" WHERE "rooms"."id" = ?[0m  [["id", 1]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/rooms
+Completed 302 Found in 2ms (ActiveRecord: 0.2ms)
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "rooms"[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+------------------------------------------
+RoomsControllerTest: test_should_get_index
+------------------------------------------
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "rooms" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", "2014-05-22 13:48:08.722437"], ["name", "MyRoom"], ["updated_at", "2014-05-22 13:48:08.722437"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "users" ("name") VALUES (?)  [["name", "Batman"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by SessionsController#create as HTML
+  Parameters: {"name"=>"Batman"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."name" = 'Batman' LIMIT 1
+Redirected to http://test.host/rooms
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+Processing by RoomsController#index as HTML
+  [1m[36mRoom Load (0.1ms)[0m  [1mSELECT "rooms".* FROM "rooms"[0m
+Completed 200 OK in 82ms (Views: 80.7ms | ActiveRecord: 0.1ms)
+  [1m[35m (0.2ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+----------------------------------------
+RoomsControllerTest: test_should_get_new
+----------------------------------------
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "rooms" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", "2014-05-22 13:48:08.811675"], ["name", "MyRoom"], ["updated_at", "2014-05-22 13:48:08.811675"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "users" ("name") VALUES (?)  [["name", "Batman"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by SessionsController#create as HTML
+  Parameters: {"name"=>"Batman"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."name" = 'Batman' LIMIT 1
+Redirected to http://test.host/rooms
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+Processing by RoomsController#new as HTML
+  Rendered rooms/_form.html.erb (11.3ms)
+Completed 200 OK in 17ms (Views: 16.8ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+------------------------------------------
+RoomsControllerTest: test_should_show_room
+------------------------------------------
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "rooms" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", "2014-05-22 13:48:08.836932"], ["name", "MyRoom"], ["updated_at", "2014-05-22 13:48:08.836932"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "users" ("name") VALUES (?)[0m  [["name", "Batman"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by SessionsController#create as HTML
+  Parameters: {"name"=>"Batman"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."name" = 'Batman' LIMIT 1[0m
+Redirected to http://test.host/rooms
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mRoom Load (0.0ms)[0m  SELECT  "rooms".* FROM "rooms"  WHERE "rooms"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mMessage Load (0.1ms)[0m  [1mSELECT "messages".* FROM "messages"  WHERE "messages"."room_id" = ?[0m  [["room_id", 1]]
+  Rendered messages/_form.html.erb (6.0ms)
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users"
+Completed 200 OK in 66ms (Views: 9.7ms | ActiveRecord: 0.5ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+-----------------------------------------------
+SessionsControllerTest: test_should_create_user
+-----------------------------------------------
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+---------------------------------------------------
+SessionsControllerTest: test_should_destroy_session
+---------------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+---------------------------------------------
+SessionsControllerTest: test_should_get_index
+---------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+-------------------------------------------
+SessionsControllerTest: test_should_get_new
+-------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+------------------------------------------------
+SessionsControllerTest: test_should_show_session
+------------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+-----------------------------------------------
+SessionsControllerTest: test_should_create_user
+-----------------------------------------------
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.7ms)[0m  INSERT INTO "users" ("name") VALUES (?)  [["name", "Batman"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by SessionsController#create as HTML
+  Parameters: {"name"=>"Batman"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."name" = 'Batman' LIMIT 1
+Redirected to http://test.host/rooms
+Completed 302 Found in 5ms (ActiveRecord: 0.1ms)
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+---------------------------------------------------
+SessionsControllerTest: test_should_destroy_session
+---------------------------------------------------
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "users" ("name") VALUES (?)[0m  [["name", "Batman"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by SessionsController#create as HTML
+  Parameters: {"name"=>"Batman"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."name" = 'Batman' LIMIT 1[0m
+Redirected to http://test.host/rooms
+Completed 302 Found in 21ms (ActiveRecord: 0.3ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+---------------------------------------------
+SessionsControllerTest: test_should_get_index
+---------------------------------------------
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("name") VALUES (?)[0m  [["name", "Batman"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by SessionsController#create as HTML
+  Parameters: {"name"=>"Batman"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."name" = 'Batman' LIMIT 1[0m
+Redirected to http://test.host/rooms
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+-------------------------------------------
+SessionsControllerTest: test_should_get_new
+-------------------------------------------
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "users" ("name") VALUES (?)[0m  [["name", "Batman"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by SessionsController#create as HTML
+  Parameters: {"name"=>"Batman"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."name" = 'Batman' LIMIT 1[0m
+Redirected to http://test.host/rooms
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+Processing by SessionsController#new as HTML
+Completed 200 OK in 53ms (Views: 53.0ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.2ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+------------------------------------------------
+SessionsControllerTest: test_should_show_session
+------------------------------------------------
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "users" ("name") VALUES (?)[0m  [["name", "Batman"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by SessionsController#create as HTML
+  Parameters: {"name"=>"Batman"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."name" = 'Batman' LIMIT 1[0m
+Redirected to http://test.host/rooms
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+  [1m[35m (0.2ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+-----------------------------------------------
+SessionsControllerTest: test_should_create_user
+-----------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "users" ("name") VALUES (?)  [["name", "Batman"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by SessionsController#create as HTML
+  Parameters: {"name"=>"Batman"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."name" = 'Batman' LIMIT 1
+Redirected to http://test.host/rooms
+Completed 302 Found in 4ms (ActiveRecord: 0.1ms)
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+---------------------------------------------------
+SessionsControllerTest: test_should_destroy_session
+---------------------------------------------------
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "users" ("name") VALUES (?)[0m  [["name", "Batman"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by SessionsController#create as HTML
+  Parameters: {"name"=>"Batman"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."name" = 'Batman' LIMIT 1[0m
+Redirected to http://test.host/rooms
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+  [1m[35m (0.3ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+---------------------------------------------
+SessionsControllerTest: test_should_get_index
+---------------------------------------------
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("name") VALUES (?)[0m  [["name", "Batman"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by SessionsController#create as HTML
+  Parameters: {"name"=>"Batman"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."name" = 'Batman' LIMIT 1[0m
+Redirected to http://test.host/rooms
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+-------------------------------------------
+SessionsControllerTest: test_should_get_new
+-------------------------------------------
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "users" ("name") VALUES (?)[0m  [["name", "Batman"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by SessionsController#create as HTML
+  Parameters: {"name"=>"Batman"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."name" = 'Batman' LIMIT 1[0m
+Redirected to http://test.host/rooms
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+Processing by SessionsController#new as HTML
+Completed 200 OK in 44ms (Views: 44.1ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.2ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+------------------------------------------------
+SessionsControllerTest: test_should_show_session
+------------------------------------------------
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "users" ("name") VALUES (?)[0m  [["name", "Batman"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by SessionsController#create as HTML
+  Parameters: {"name"=>"Batman"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."name" = 'Batman' LIMIT 1[0m
+Redirected to http://test.host/rooms
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+-----------------------------------------------
+SessionsControllerTest: test_should_create_user
+-----------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "users" ("name") VALUES (?)  [["name", "Batman"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by SessionsController#create as HTML
+  Parameters: {"name"=>"Batman"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."name" = 'Batman' LIMIT 1
+Redirected to http://test.host/rooms
+Completed 302 Found in 5ms (ActiveRecord: 0.1ms)
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+---------------------------------------------------
+SessionsControllerTest: test_should_destroy_session
+---------------------------------------------------
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "users" ("name") VALUES (?)[0m  [["name", "Batman"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by SessionsController#create as HTML
+  Parameters: {"name"=>"Batman"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."name" = 'Batman' LIMIT 1[0m
+Redirected to http://test.host/rooms
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+---------------------------------------------
+SessionsControllerTest: test_should_get_index
+---------------------------------------------
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "users" ("name") VALUES (?)[0m  [["name", "Batman"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by SessionsController#create as HTML
+  Parameters: {"name"=>"Batman"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."name" = 'Batman' LIMIT 1[0m
+Redirected to http://test.host/rooms
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+-------------------------------------------
+SessionsControllerTest: test_should_get_new
+-------------------------------------------
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "users" ("name") VALUES (?)[0m  [["name", "Batman"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by SessionsController#create as HTML
+  Parameters: {"name"=>"Batman"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."name" = 'Batman' LIMIT 1[0m
+Redirected to http://test.host/rooms
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+Processing by SessionsController#new as HTML
+Completed 200 OK in 44ms (Views: 43.7ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.2ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+------------------------------------------------
+SessionsControllerTest: test_should_show_session
+------------------------------------------------
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "users" ("name") VALUES (?)[0m  [["name", "Batman"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by SessionsController#create as HTML
+  Parameters: {"name"=>"Batman"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."name" = 'Batman' LIMIT 1[0m
+Redirected to http://test.host/rooms
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+-----------------------------------------------
+SessionsControllerTest: test_should_create_user
+-----------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.9ms)[0m  INSERT INTO "users" ("name") VALUES (?)  [["name", "Batman"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by SessionsController#create as HTML
+  Parameters: {"name"=>"Batman"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."name" = 'Batman' LIMIT 1
+Redirected to http://test.host/rooms
+Completed 302 Found in 5ms (ActiveRecord: 0.1ms)
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+---------------------------------------------------
+SessionsControllerTest: test_should_destroy_session
+---------------------------------------------------
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "users" ("name") VALUES (?)[0m  [["name", "Batman"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by SessionsController#create as HTML
+  Parameters: {"name"=>"Batman"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."name" = 'Batman' LIMIT 1[0m
+Redirected to http://test.host/rooms
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+---------------------------------------------
+SessionsControllerTest: test_should_get_index
+---------------------------------------------
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "users" ("name") VALUES (?)[0m  [["name", "Batman"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by SessionsController#create as HTML
+  Parameters: {"name"=>"Batman"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."name" = 'Batman' LIMIT 1[0m
+Redirected to http://test.host/rooms
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+-------------------------------------------
+SessionsControllerTest: test_should_get_new
+-------------------------------------------
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "users" ("name") VALUES (?)[0m  [["name", "Batman"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by SessionsController#create as HTML
+  Parameters: {"name"=>"Batman"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."name" = 'Batman' LIMIT 1[0m
+Redirected to http://test.host/rooms
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+Processing by SessionsController#new as HTML
+Completed 200 OK in 44ms (Views: 44.0ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.2ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+------------------------------------------------
+SessionsControllerTest: test_should_show_session
+------------------------------------------------
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "users" ("name") VALUES (?)[0m  [["name", "Batman"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by SessionsController#create as HTML
+  Parameters: {"name"=>"Batman"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."name" = 'Batman' LIMIT 1[0m
+Redirected to http://test.host/rooms
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+-----------------------------------------------
+SessionsControllerTest: test_should_create_user
+-----------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "users" ("name") VALUES (?)  [["name", "Batman"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by SessionsController#create as HTML
+  Parameters: {"name"=>"Batman"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."name" = 'Batman' LIMIT 1
+Redirected to http://test.host/rooms
+Completed 302 Found in 4ms (ActiveRecord: 0.1ms)
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+---------------------------------------------------
+SessionsControllerTest: test_should_destroy_session
+---------------------------------------------------
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "users" ("name") VALUES (?)[0m  [["name", "Batman"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by SessionsController#create as HTML
+  Parameters: {"name"=>"Batman"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."name" = 'Batman' LIMIT 1[0m
+Redirected to http://test.host/rooms
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+  [1m[35m (0.3ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+---------------------------------------------
+SessionsControllerTest: test_should_get_index
+---------------------------------------------
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "users" ("name") VALUES (?)[0m  [["name", "Batman"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by SessionsController#create as HTML
+  Parameters: {"name"=>"Batman"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."name" = 'Batman' LIMIT 1[0m
+Redirected to http://test.host/rooms
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+-------------------------------------------
+SessionsControllerTest: test_should_get_new
+-------------------------------------------
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "users" ("name") VALUES (?)[0m  [["name", "Batman"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by SessionsController#create as HTML
+  Parameters: {"name"=>"Batman"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."name" = 'Batman' LIMIT 1[0m
+Redirected to http://test.host/rooms
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+Processing by SessionsController#new as HTML
+Completed 200 OK in 44ms (Views: 44.1ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.2ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+------------------------------------------------
+SessionsControllerTest: test_should_show_session
+------------------------------------------------
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "users" ("name") VALUES (?)[0m  [["name", "Batman"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by SessionsController#create as HTML
+  Parameters: {"name"=>"Batman"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."name" = 'Batman' LIMIT 1[0m
+Redirected to http://test.host/rooms
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+-----------------------------------------------
+SessionsControllerTest: test_should_create_user
+-----------------------------------------------
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.1ms)[0m  INSERT INTO "users" ("name") VALUES (?)  [["name", "Batman"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by SessionsController#create as HTML
+  Parameters: {"name"=>"Batman"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."name" = 'Batman' LIMIT 1
+Redirected to http://test.host/rooms
+Completed 302 Found in 5ms (ActiveRecord: 0.1ms)
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+---------------------------------------------------
+SessionsControllerTest: test_should_destroy_session
+---------------------------------------------------
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "users" ("name") VALUES (?)[0m  [["name", "Batman"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by SessionsController#create as HTML
+  Parameters: {"name"=>"Batman"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."name" = 'Batman' LIMIT 1[0m
+Redirected to http://test.host/rooms
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+---------------------------------------------
+SessionsControllerTest: test_should_get_index
+---------------------------------------------
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("name") VALUES (?)[0m  [["name", "Batman"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by SessionsController#create as HTML
+  Parameters: {"name"=>"Batman"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."name" = 'Batman' LIMIT 1[0m
+Redirected to http://test.host/rooms
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+-------------------------------------------
+SessionsControllerTest: test_should_get_new
+-------------------------------------------
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "users" ("name") VALUES (?)[0m  [["name", "Batman"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by SessionsController#create as HTML
+  Parameters: {"name"=>"Batman"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."name" = 'Batman' LIMIT 1[0m
+Redirected to http://test.host/rooms
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+Processing by SessionsController#new as HTML
+Completed 200 OK in 46ms (Views: 46.2ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.2ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+------------------------------------------------
+SessionsControllerTest: test_should_show_session
+------------------------------------------------
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "users" ("name") VALUES (?)[0m  [["name", "Batman"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by SessionsController#create as HTML
+  Parameters: {"name"=>"Batman"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."name" = 'Batman' LIMIT 1[0m
+Redirected to http://test.host/rooms
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+-----------------------------------------------
+SessionsControllerTest: test_should_create_user
+-----------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "users" ("name") VALUES (?)  [["name", "Batman"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by SessionsController#create as HTML
+  Parameters: {"name"=>"Batman"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."name" = 'Batman' LIMIT 1
+Redirected to http://test.host/rooms
+Completed 302 Found in 4ms (ActiveRecord: 0.1ms)
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "users" ("name") VALUES (?)  [["name", "Batman"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by SessionsController#create as HTML
+  Parameters: {"name"=>"Batman"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."name" = 'Batman' LIMIT 1
+Redirected to http://test.host/rooms
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+---------------------------------------------------
+SessionsControllerTest: test_should_destroy_session
+---------------------------------------------------
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "users" ("name") VALUES (?)[0m  [["name", "Batman"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by SessionsController#create as HTML
+  Parameters: {"name"=>"Batman"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."name" = 'Batman' LIMIT 1[0m
+Redirected to http://test.host/rooms
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+  [1m[35m (0.2ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+---------------------------------------------
+SessionsControllerTest: test_should_get_index
+---------------------------------------------
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "users" ("name") VALUES (?)[0m  [["name", "Batman"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by SessionsController#create as HTML
+  Parameters: {"name"=>"Batman"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."name" = 'Batman' LIMIT 1[0m
+Redirected to http://test.host/rooms
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+-------------------------------------------
+SessionsControllerTest: test_should_get_new
+-------------------------------------------
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "users" ("name") VALUES (?)[0m  [["name", "Batman"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by SessionsController#create as HTML
+  Parameters: {"name"=>"Batman"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."name" = 'Batman' LIMIT 1[0m
+Redirected to http://test.host/rooms
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+Processing by SessionsController#new as HTML
+Completed 200 OK in 44ms (Views: 44.1ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+------------------------------------------------
+SessionsControllerTest: test_should_show_session
+------------------------------------------------
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "users" ("name") VALUES (?)[0m  [["name", "Batman"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by SessionsController#create as HTML
+  Parameters: {"name"=>"Batman"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."name" = 'Batman' LIMIT 1[0m
+Redirected to http://test.host/rooms
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+-----------------------------------------------
+SessionsControllerTest: test_should_create_user
+-----------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.9ms)[0m  INSERT INTO "users" ("name") VALUES (?)  [["name", "Batman"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by SessionsController#create as HTML
+  Parameters: {"name"=>"Batman"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."name" = 'Batman' LIMIT 1
+Redirected to http://test.host/rooms
+Completed 302 Found in 4ms (ActiveRecord: 0.1ms)
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "users" ("name") VALUES (?)  [["name", "Batman"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by SessionsController#create as HTML
+  Parameters: {"name"=>"Batman"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."name" = 'Batman' LIMIT 1
+Redirected to http://test.host/rooms
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+Processing by SessionsController#create as HTML
+  Rendered sessions/new.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 65ms (Views: 64.6ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "users"
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+---------------------------------------------------
+SessionsControllerTest: test_should_destroy_session
+---------------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "users" ("name") VALUES (?)  [["name", "Batman"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by SessionsController#create as HTML
+  Parameters: {"name"=>"Batman"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."name" = 'Batman' LIMIT 1
+Redirected to http://test.host/rooms
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+---------------------------------------------
+SessionsControllerTest: test_should_get_index
+---------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "users" ("name") VALUES (?)  [["name", "Batman"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by SessionsController#create as HTML
+  Parameters: {"name"=>"Batman"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."name" = 'Batman' LIMIT 1
+Redirected to http://test.host/rooms
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+-------------------------------------------
+SessionsControllerTest: test_should_get_new
+-------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "users" ("name") VALUES (?)  [["name", "Batman"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by SessionsController#create as HTML
+  Parameters: {"name"=>"Batman"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."name" = 'Batman' LIMIT 1
+Redirected to http://test.host/rooms
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+Processing by SessionsController#new as HTML
+Completed 200 OK in 2ms (Views: 2.0ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+-----------------------------------------------
+SessionsControllerTest: test_should_create_user
+-----------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "users" ("name") VALUES (?)  [["name", 1]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by SessionsController#create as HTML
+  Parameters: {"name"=>"1"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."name" = '1' LIMIT 1
+Redirected to http://test.host/rooms
+Completed 302 Found in 26ms (ActiveRecord: 0.1ms)
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "users" ("name") VALUES (?)  [["name", 2]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by SessionsController#create as HTML
+  Parameters: {"name"=>"2"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."name" = '2' LIMIT 1
+Redirected to http://test.host/rooms
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+Processing by SessionsController#create as HTML
+  Rendered sessions/new.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 43ms (Views: 43.2ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "users"
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+---------------------------------------------------
+SessionsControllerTest: test_should_destroy_session
+---------------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "users" ("name") VALUES (?)  [["name", 3]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by SessionsController#create as HTML
+  Parameters: {"name"=>"3"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."name" = '3' LIMIT 1
+Redirected to http://test.host/rooms
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+---------------------------------------------
+SessionsControllerTest: test_should_get_index
+---------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "users" ("name") VALUES (?)  [["name", 4]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by SessionsController#create as HTML
+  Parameters: {"name"=>"4"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."name" = '4' LIMIT 1
+Redirected to http://test.host/rooms
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+-------------------------------------------
+SessionsControllerTest: test_should_get_new
+-------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "users" ("name") VALUES (?)  [["name", 5]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by SessionsController#create as HTML
+  Parameters: {"name"=>"5"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."name" = '5' LIMIT 1
+Redirected to http://test.host/rooms
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+Processing by SessionsController#new as HTML
+Completed 200 OK in 2ms (Views: 2.0ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+-----------------------------------------------
+SessionsControllerTest: test_should_create_user
+-----------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.9ms)[0m  INSERT INTO "users" ("name") VALUES (?)  [["name", 1]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by SessionsController#create as HTML
+  Parameters: {"name"=>"1"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."name" = '1' LIMIT 1
+Redirected to http://test.host/rooms
+Completed 302 Found in 25ms (ActiveRecord: 0.1ms)
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "users" ("name") VALUES (?)  [["name", 2]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by SessionsController#create as HTML
+  Parameters: {"name"=>"2"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."name" = '2' LIMIT 1
+Redirected to http://test.host/rooms
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+Processing by SessionsController#create as HTML
+  Rendered sessions/new.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 44ms (Views: 43.8ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "users"
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+---------------------------------------------------
+SessionsControllerTest: test_should_destroy_session
+---------------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "users" ("name") VALUES (?)  [["name", 3]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by SessionsController#create as HTML
+  Parameters: {"name"=>"3"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."name" = '3' LIMIT 1
+Redirected to http://test.host/rooms
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+---------------------------------------------
+SessionsControllerTest: test_should_get_index
+---------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "users" ("name") VALUES (?)  [["name", 4]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by SessionsController#create as HTML
+  Parameters: {"name"=>"4"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."name" = '4' LIMIT 1
+Redirected to http://test.host/rooms
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+-------------------------------------------
+SessionsControllerTest: test_should_get_new
+-------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "users" ("name") VALUES (?)  [["name", 5]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by SessionsController#create as HTML
+  Parameters: {"name"=>"5"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."name" = '5' LIMIT 1
+Redirected to http://test.host/rooms
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+Processing by SessionsController#new as HTML
+Completed 200 OK in 2ms (Views: 1.9ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+-----------------------------------------------
+SessionsControllerTest: test_should_create_user
+-----------------------------------------------
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+---------------------------------------------------
+SessionsControllerTest: test_should_destroy_session
+---------------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+---------------------------------------------
+SessionsControllerTest: test_should_get_index
+---------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+-------------------------------------------
+SessionsControllerTest: test_should_get_new
+-------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+-----------------------------------------------
+SessionsControllerTest: test_should_create_user
+-----------------------------------------------
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+---------------------------------------------------
+SessionsControllerTest: test_should_destroy_session
+---------------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+---------------------------------------------
+SessionsControllerTest: test_should_get_index
+---------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+-------------------------------------------
+SessionsControllerTest: test_should_get_new
+-------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+-----------------------------------------------
+SessionsControllerTest: test_should_create_user
+-----------------------------------------------
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+---------------------------------------------------
+SessionsControllerTest: test_should_destroy_session
+---------------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+---------------------------------------------
+SessionsControllerTest: test_should_get_index
+---------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+-------------------------------------------
+SessionsControllerTest: test_should_get_new
+-------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+-----------------------------------------------
+SessionsControllerTest: test_should_create_user
+-----------------------------------------------
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+---------------------------------------------------
+SessionsControllerTest: test_should_destroy_session
+---------------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+---------------------------------------------
+SessionsControllerTest: test_should_get_index
+---------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+-------------------------------------------
+SessionsControllerTest: test_should_get_new
+-------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+-----------------------------------------------
+SessionsControllerTest: test_should_create_user
+-----------------------------------------------
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+---------------------------------------------------
+SessionsControllerTest: test_should_destroy_session
+---------------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+---------------------------------------------
+SessionsControllerTest: test_should_get_index
+---------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+-------------------------------------------
+SessionsControllerTest: test_should_get_new
+-------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+-----------------------------------------------
+SessionsControllerTest: test_should_create_user
+-----------------------------------------------
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+---------------------------------------------------
+SessionsControllerTest: test_should_destroy_session
+---------------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+---------------------------------------------
+SessionsControllerTest: test_should_get_index
+---------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+-------------------------------------------
+SessionsControllerTest: test_should_get_new
+-------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+-----------------------------------------------
+SessionsControllerTest: test_should_create_user
+-----------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "users" ("name") VALUES (?)  [["name", "User 1"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by SessionsController#create as HTML
+  Parameters: {"name"=>"User 1"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."name" = 'User 1' LIMIT 1
+Redirected to http://test.host/rooms
+Completed 302 Found in 4ms (ActiveRecord: 0.1ms)
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "users" ("name") VALUES (?)  [["name", "User 2"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by SessionsController#create as HTML
+  Parameters: {"name"=>"User 2"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."name" = 'User 2' LIMIT 1
+Redirected to http://test.host/rooms
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+Processing by SessionsController#create as HTML
+  Rendered sessions/new.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 64ms (Views: 63.3ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "users"
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+---------------------------------------------------
+SessionsControllerTest: test_should_destroy_session
+---------------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "users" ("name") VALUES (?)  [["name", "User 3"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by SessionsController#create as HTML
+  Parameters: {"name"=>"User 3"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."name" = 'User 3' LIMIT 1
+Redirected to http://test.host/rooms
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+---------------------------------------------
+SessionsControllerTest: test_should_get_index
+---------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "users" ("name") VALUES (?)  [["name", "User 4"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by SessionsController#create as HTML
+  Parameters: {"name"=>"User 4"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."name" = 'User 4' LIMIT 1
+Redirected to http://test.host/rooms
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+-------------------------------------------
+SessionsControllerTest: test_should_get_new
+-------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "users" ("name") VALUES (?)  [["name", "User 5"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by SessionsController#create as HTML
+  Parameters: {"name"=>"User 5"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."name" = 'User 5' LIMIT 1
+Redirected to http://test.host/rooms
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+Processing by SessionsController#new as HTML
+Completed 200 OK in 2ms (Views: 1.6ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+-----------------------------------------------
+SessionsControllerTest: test_should_create_user
+-----------------------------------------------
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+---------------------------------------------------
+SessionsControllerTest: test_should_destroy_session
+---------------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+---------------------------------------------
+SessionsControllerTest: test_should_get_index
+---------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+-------------------------------------------
+SessionsControllerTest: test_should_get_new
+-------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+-----------------------------------------------
+SessionsControllerTest: test_should_create_user
+-----------------------------------------------
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+---------------------------------------------------
+SessionsControllerTest: test_should_destroy_session
+---------------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+---------------------------------------------
+SessionsControllerTest: test_should_get_index
+---------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+-------------------------------------------
+SessionsControllerTest: test_should_get_new
+-------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+-----------------------------------------------
+SessionsControllerTest: test_should_create_user
+-----------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "users" ("name") VALUES (?)  [["name", "User1"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by SessionsController#create as HTML
+  Parameters: {"name"=>"User1"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."name" = 'User1' LIMIT 1
+Redirected to http://test.host/rooms
+Completed 302 Found in 4ms (ActiveRecord: 0.1ms)
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "users" ("name") VALUES (?)  [["name", "User2"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by SessionsController#create as HTML
+  Parameters: {"name"=>"User2"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."name" = 'User2' LIMIT 1
+Redirected to http://test.host/rooms
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+Processing by SessionsController#create as HTML
+  Rendered sessions/new.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 64ms (Views: 63.5ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "users"
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+---------------------------------------------------
+SessionsControllerTest: test_should_destroy_session
+---------------------------------------------------
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "users" ("name") VALUES (?)  [["name", "User3"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by SessionsController#create as HTML
+  Parameters: {"name"=>"User3"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."name" = 'User3' LIMIT 1
+Redirected to http://test.host/rooms
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+---------------------------------------------
+SessionsControllerTest: test_should_get_index
+---------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "users" ("name") VALUES (?)  [["name", "User4"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by SessionsController#create as HTML
+  Parameters: {"name"=>"User4"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."name" = 'User4' LIMIT 1
+Redirected to http://test.host/rooms
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+-------------------------------------------
+SessionsControllerTest: test_should_get_new
+-------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "users" ("name") VALUES (?)  [["name", "User5"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by SessionsController#create as HTML
+  Parameters: {"name"=>"User5"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."name" = 'User5' LIMIT 1
+Redirected to http://test.host/rooms
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+Processing by SessionsController#new as HTML
+Completed 200 OK in 2ms (Views: 1.7ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+-----------------------------------------------
+SessionsControllerTest: test_should_create_user
+-----------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "users" ("name") VALUES (?)  [["name", "Initial_User"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by SessionsController#create as HTML
+  Parameters: {"name"=>"Initial_User"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."name" = 'Initial_User' LIMIT 1
+Redirected to http://test.host/rooms
+Completed 302 Found in 4ms (ActiveRecord: 0.1ms)
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "users" ("name") VALUES (?)  [["name", "Initial_User"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by SessionsController#create as HTML
+  Parameters: {"name"=>"Initial_User"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."name" = 'Initial_User' LIMIT 1
+Redirected to http://test.host/rooms
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+Processing by SessionsController#create as HTML
+  Rendered sessions/new.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 64ms (Views: 63.3ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "users"
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+---------------------------------------------------
+SessionsControllerTest: test_should_destroy_session
+---------------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "users" ("name") VALUES (?)  [["name", "Initial_User"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by SessionsController#create as HTML
+  Parameters: {"name"=>"Initial_User"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."name" = 'Initial_User' LIMIT 1
+Redirected to http://test.host/rooms
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+---------------------------------------------
+SessionsControllerTest: test_should_get_index
+---------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "users" ("name") VALUES (?)  [["name", "Initial_User"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by SessionsController#create as HTML
+  Parameters: {"name"=>"Initial_User"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."name" = 'Initial_User' LIMIT 1
+Redirected to http://test.host/rooms
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+-------------------------------------------
+SessionsControllerTest: test_should_get_new
+-------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "users" ("name") VALUES (?)  [["name", "Initial_User"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by SessionsController#create as HTML
+  Parameters: {"name"=>"Initial_User"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."name" = 'Initial_User' LIMIT 1
+Redirected to http://test.host/rooms
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+Processing by SessionsController#new as HTML
+Completed 200 OK in 2ms (Views: 1.6ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+-----------------------------------------------
+SessionsControllerTest: test_should_create_user
+-----------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.9ms)[0m  INSERT INTO "users" ("name") VALUES (?)  [["name", "User1"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by SessionsController#create as HTML
+  Parameters: {"name"=>"User1"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."name" = 'User1' LIMIT 1
+Redirected to http://test.host/rooms
+Completed 302 Found in 4ms (ActiveRecord: 0.1ms)
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "users" ("name") VALUES (?)  [["name", "User2"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by SessionsController#create as HTML
+  Parameters: {"name"=>"User2"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."name" = 'User2' LIMIT 1
+Redirected to http://test.host/rooms
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+Processing by SessionsController#create as HTML
+  Rendered sessions/new.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 64ms (Views: 63.4ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "users"
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+---------------------------------------------------
+SessionsControllerTest: test_should_destroy_session
+---------------------------------------------------
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "users" ("name") VALUES (?)  [["name", "User3"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by SessionsController#create as HTML
+  Parameters: {"name"=>"User3"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."name" = 'User3' LIMIT 1
+Redirected to http://test.host/rooms
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+---------------------------------------------
+SessionsControllerTest: test_should_get_index
+---------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "users" ("name") VALUES (?)  [["name", "User4"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by SessionsController#create as HTML
+  Parameters: {"name"=>"User4"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."name" = 'User4' LIMIT 1
+Redirected to http://test.host/rooms
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+-------------------------------------------
+SessionsControllerTest: test_should_get_new
+-------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "users" ("name") VALUES (?)  [["name", "User5"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by SessionsController#create as HTML
+  Parameters: {"name"=>"User5"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."name" = 'User5' LIMIT 1
+Redirected to http://test.host/rooms
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+Processing by SessionsController#new as HTML
+Completed 200 OK in 2ms (Views: 1.6ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+-----------------------------------------------
+SessionsControllerTest: test_should_create_user
+-----------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "users" ("name") VALUES (?)  [["name", "Initial_User"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by SessionsController#create as HTML
+  Parameters: {"name"=>"Initial_User"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."name" = 'Initial_User' LIMIT 1
+Redirected to http://test.host/rooms
+Completed 302 Found in 4ms (ActiveRecord: 0.1ms)
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "users" ("name") VALUES (?)  [["name", "Initial_User"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by SessionsController#create as HTML
+  Parameters: {"name"=>"Initial_User"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."name" = 'Initial_User' LIMIT 1
+Redirected to http://test.host/rooms
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+Processing by SessionsController#create as HTML
+  Rendered sessions/new.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 65ms (Views: 64.8ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+---------------------------------------------------
+SessionsControllerTest: test_should_destroy_session
+---------------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "users" ("name") VALUES (?)  [["name", "Initial_User"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by SessionsController#create as HTML
+  Parameters: {"name"=>"Initial_User"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."name" = 'Initial_User' LIMIT 1
+Redirected to http://test.host/rooms
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+---------------------------------------------
+SessionsControllerTest: test_should_get_index
+---------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "users" ("name") VALUES (?)  [["name", "Initial_User"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by SessionsController#create as HTML
+  Parameters: {"name"=>"Initial_User"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."name" = 'Initial_User' LIMIT 1
+Redirected to http://test.host/rooms
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+-------------------------------------------
+SessionsControllerTest: test_should_get_new
+-------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "users" ("name") VALUES (?)  [["name", "Initial_User"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by SessionsController#create as HTML
+  Parameters: {"name"=>"Initial_User"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."name" = 'Initial_User' LIMIT 1
+Redirected to http://test.host/rooms
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+Processing by SessionsController#new as HTML
+Completed 200 OK in 2ms (Views: 1.4ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+-----------------------------------------------
+SessionsControllerTest: test_should_create_user
+-----------------------------------------------
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "users" ("name") VALUES (?)  [["name", "Initial_User"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by SessionsController#create as HTML
+  Parameters: {"name"=>"Initial_User"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."name" = 'Initial_User' LIMIT 1
+Redirected to http://test.host/rooms
+Completed 302 Found in 5ms (ActiveRecord: 0.1ms)
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "users" ("name") VALUES (?)  [["name", "Initial_User"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by SessionsController#create as HTML
+  Parameters: {"name"=>"Initial_User"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."name" = 'Initial_User' LIMIT 1
+Redirected to http://test.host/rooms
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+Processing by SessionsController#create as HTML
+  Rendered sessions/new.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 64ms (Views: 63.8ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+---------------------------------------------------
+SessionsControllerTest: test_should_destroy_session
+---------------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "users" ("name") VALUES (?)  [["name", "Initial_User"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by SessionsController#create as HTML
+  Parameters: {"name"=>"Initial_User"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."name" = 'Initial_User' LIMIT 1
+Redirected to http://test.host/rooms
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+---------------------------------------------
+SessionsControllerTest: test_should_get_index
+---------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "users" ("name") VALUES (?)  [["name", "Initial_User"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by SessionsController#create as HTML
+  Parameters: {"name"=>"Initial_User"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."name" = 'Initial_User' LIMIT 1
+Redirected to http://test.host/rooms
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+-------------------------------------------
+SessionsControllerTest: test_should_get_new
+-------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "users" ("name") VALUES (?)  [["name", "Initial_User"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by SessionsController#create as HTML
+  Parameters: {"name"=>"Initial_User"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."name" = 'Initial_User' LIMIT 1
+Redirected to http://test.host/rooms
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+Processing by SessionsController#new as HTML
+Completed 200 OK in 1ms (Views: 1.3ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+-----------------------------------------------
+SessionsControllerTest: test_should_create_user
+-----------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "users" ("name") VALUES (?)  [["name", "Initial_User"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by SessionsController#create as HTML
+  Parameters: {"name"=>"Initial_User"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."name" = 'Initial_User' LIMIT 1
+Redirected to http://test.host/rooms
+Completed 302 Found in 4ms (ActiveRecord: 0.1ms)
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "users" ("name") VALUES (?)  [["name", "Initial_User"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by SessionsController#create as HTML
+  Parameters: {"name"=>"Initial_User"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."name" = 'Initial_User' LIMIT 1
+Redirected to http://test.host/rooms
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+Processing by SessionsController#create as HTML
+  Rendered sessions/new.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 64ms (Views: 63.9ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+---------------------------------------------------
+SessionsControllerTest: test_should_destroy_session
+---------------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "users" ("name") VALUES (?)  [["name", "Initial_User"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by SessionsController#create as HTML
+  Parameters: {"name"=>"Initial_User"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."name" = 'Initial_User' LIMIT 1
+Redirected to http://test.host/rooms
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+-------------------------------------------
+SessionsControllerTest: test_should_get_new
+-------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "users" ("name") VALUES (?)  [["name", "Initial_User"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by SessionsController#create as HTML
+  Parameters: {"name"=>"Initial_User"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."name" = 'Initial_User' LIMIT 1
+Redirected to http://test.host/rooms
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+Processing by SessionsController#new as HTML
+Completed 200 OK in 1ms (Views: 1.3ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+--------------------------------------------
+RoomsControllerTest: test_should_create_room
+--------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.1ms)[0m  INSERT INTO "rooms" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", "2014-05-22 16:25:40.381745"], ["name", "MyRoom"], ["updated_at", "2014-05-22 16:25:40.381745"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("name") VALUES (?)[0m  [["name", "Initial_User"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by SessionsController#create as HTML
+  Parameters: {"name"=>"Initial_User"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."name" = 'Initial_User' LIMIT 1[0m
+Redirected to http://test.host/rooms
+Completed 302 Found in 4ms (ActiveRecord: 0.1ms)
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "rooms"
+Processing by RoomsController#create as HTML
+  Parameters: {"room"=>{"room"=>"MyRoom"}}
+Unpermitted parameters: room
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "rooms" ("created_at", "updated_at") VALUES (?, ?)  [["created_at", "2014-05-22 16:25:40.420931"], ["updated_at", "2014-05-22 16:25:40.420931"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/rooms
+Completed 302 Found in 2ms (ActiveRecord: 0.2ms)
+  [1m[35m (0.0ms)[0m  SELECT COUNT(*) FROM "rooms"
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+---------------------------------------------
+RoomsControllerTest: test_should_destroy_room
+---------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "rooms" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", "2014-05-22 16:25:40.424033"], ["name", "MyRoom"], ["updated_at", "2014-05-22 16:25:40.424033"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "users" ("name") VALUES (?)[0m  [["name", "Initial_User"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by SessionsController#create as HTML
+  Parameters: {"name"=>"Initial_User"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."name" = 'Initial_User' LIMIT 1[0m
+Redirected to http://test.host/rooms
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "rooms"
+Processing by RoomsController#destroy as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRoom Load (0.1ms)[0m  [1mSELECT  "rooms".* FROM "rooms"  WHERE "rooms"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mDELETE FROM "rooms" WHERE "rooms"."id" = ?[0m  [["id", 1]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/rooms
+Completed 302 Found in 2ms (ActiveRecord: 0.2ms)
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "rooms"[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+------------------------------------------
+RoomsControllerTest: test_should_get_index
+------------------------------------------
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "rooms" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", "2014-05-22 16:25:40.432268"], ["name", "MyRoom"], ["updated_at", "2014-05-22 16:25:40.432268"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "users" ("name") VALUES (?)  [["name", "Initial_User"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by SessionsController#create as HTML
+  Parameters: {"name"=>"Initial_User"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."name" = 'Initial_User' LIMIT 1
+Redirected to http://test.host/rooms
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+Processing by RoomsController#index as HTML
+  [1m[36mRoom Load (0.1ms)[0m  [1mSELECT "rooms".* FROM "rooms"[0m
+Completed 200 OK in 67ms (Views: 66.2ms | ActiveRecord: 0.1ms)
+  [1m[35m (0.2ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+----------------------------------------
+RoomsControllerTest: test_should_get_new
+----------------------------------------
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "rooms" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", "2014-05-22 16:25:40.505226"], ["name", "MyRoom"], ["updated_at", "2014-05-22 16:25:40.505226"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "users" ("name") VALUES (?)  [["name", "Initial_User"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by SessionsController#create as HTML
+  Parameters: {"name"=>"Initial_User"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."name" = 'Initial_User' LIMIT 1
+Redirected to http://test.host/rooms
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+Processing by RoomsController#new as HTML
+  Rendered rooms/_form.html.erb (9.8ms)
+Completed 200 OK in 16ms (Views: 15.3ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+------------------------------------------
+RoomsControllerTest: test_should_show_room
+------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "rooms" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", "2014-05-22 16:25:40.527101"], ["name", "MyRoom"], ["updated_at", "2014-05-22 16:25:40.527101"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "users" ("name") VALUES (?)[0m  [["name", "Initial_User"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by SessionsController#create as HTML
+  Parameters: {"name"=>"Initial_User"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."name" = 'Initial_User' LIMIT 1[0m
+Redirected to http://test.host/rooms
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mRoom Load (0.0ms)[0m  SELECT  "rooms".* FROM "rooms"  WHERE "rooms"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mMessage Load (0.1ms)[0m  [1mSELECT "messages".* FROM "messages"  WHERE "messages"."room_id" = ?[0m  [["room_id", 1]]
+  Rendered messages/_form.html.erb (5.9ms)
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users"
+Completed 200 OK in 66ms (Views: 9.8ms | ActiveRecord: 0.5ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m

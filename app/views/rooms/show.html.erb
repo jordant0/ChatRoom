@@ -1,0 +1,59 @@
+<h3><b>Current room: <%= @room.name %></b></h3>
+<%= button_to 'Leave', rooms_path, :method => "get", class: 'btn btn-sm btn-warning' %>
+<br>
+
+<div class="row">
+  <div class="col-lg-10">
+    <div class="message-window">
+      <table class='table table-striped'>
+        <tbody>
+          <% @messages.each do |message| %>
+            <tr>
+              <td class="username"><%= message.username %></td>
+              <td><%= message.body %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+
+    <br>
+    <%= render partial: 'messages/form' %>
+  </div>
+  
+  <div class="col-lg-2">
+    <b>Current Users: <%= @current_user.name %><b>
+    <br>
+    <button type="button" class="btn btn-sm btn-danger">Log out</button>
+    <br><br>
+    <table>
+      <% @users.each do |user| %>
+        <tr>
+          <td class="username"><%= user.name %></td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+
+<div id='log-out-form' class='modal fade bs-example-modal-sm' >
+  <div class='modal-dialog modal-sm'>
+    <div class='modal-content' >
+      <%= form_tag session_path, class: "form-horizontal" do |f| %>
+        <div class="form-group">
+          <label for="name" class="col-sm-2 control-label">Name</label>
+          <div class="col-sm-6">
+            <input class="form-control" id="name" name="name" placeholder="Name">
+          </div>
+        </div>
+        <%= hidden_field_tag(:room_id, @room.id) %>
+        <div class="form-group">
+          <div class="col-sm-offset-2 col-sm-6">
+            <button type="submit" class="btn btn-default">Sign in</button>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>    
+</div>

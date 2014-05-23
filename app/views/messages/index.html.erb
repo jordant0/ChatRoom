@@ -17,9 +17,16 @@
 
     <%= render partial: 'form' %>
 
-    </div>
-    <div class="col-lg-2">
-      sidebar
-    </div>
-</div>
+  </div>
+  <div class="col-lg-2">
+    <h3>Users</h3>
+    <%= link_to 'Logout', session_path, :method => "destroy", class: 'btn btn-primary' %>
+    <table>
+      <% @users.each do |user| %>
+        <tr>
+          <td class="username"><%= user.name %></td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
 </div>

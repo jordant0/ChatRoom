@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
 
-  root 'messages#index'
+  root 'rooms#index'
 
+  resources :user
+  resources :rooms
   resources :messages, only: [:index, :create]
   resource :session, only: [:new, :create]
 

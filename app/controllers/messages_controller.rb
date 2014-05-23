@@ -6,6 +6,7 @@ class MessagesController < ApplicationController
   def index
     @messages = Message.all
     @message = Message.new
+    @users = User.all
   end
 
   # GET /messages/1
@@ -28,15 +29,16 @@ class MessagesController < ApplicationController
     @message = Message.new(message_params)
     @message.username = current_user.name
 
-    respond_to do |format|
-      if @message.save
-        format.html { redirect_to messages_path, notice: 'Message was successfully created.' }
-        format.json { render :show, status: :created, location: @message }
-      else
-        format.html { render :new }
-        format.json { render json: @message.errors, status: :unprocessable_entity }
-      end
-    end
+    @message,save
+    #respond_to do |format|
+    #  if @message.save
+    #    format.html { redirect_to params[:redirect] || messages_path, notice: 'Message was successfully created.' }
+    #    format.json { render :show, status: :created, location: @message }
+    #  else
+    #    format.html { render :new }
+    #    format.json { render json: @message.errors, status: :unprocessable_entity }
+    #  end
+    #end
   end
 
   # PATCH/PUT /messages/1
@@ -71,6 +73,6 @@ class MessagesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def message_params
-      params.require(:message).permit(:body, :username)
+      params.require(:message).permit(:body, :username, :room_id)
     end
 end

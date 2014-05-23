@@ -1,7 +1,13 @@
+<form id='post'>
 <%= form_for(@message, html: {class: 'form-inline'}) do |f| %>
   <div class="form-group">
     <%= f.label :body, class: 'sr-only' %>
     <%= f.text_field :body, placeholder: 'message', row: 1, class: 'form-control' %>
   </div>
+  <% if @room %>
+  	<%= f.hidden_field :room_id, value:@room.id %>
+  <% end %>
+  <%= hidden_field_tag :redirect, url_for %>
   <%= f.button('Post', class: 'btn btn-primary') %>
 <% end %>
+</form>

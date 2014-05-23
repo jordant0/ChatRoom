@@ -1,0 +1,7 @@
+<%= form_for(@room) do |f| %>
+  <div class="form-group">
+    <%= f.label :name, class: 'sr-only' %>
+    <%= f.text_field :name, placeholder: 'room', row: 0, class: 'form-control' %>
+  </div>
+  <%= f.button('Create', class: 'btn btn-primary') %>
+<% end %>

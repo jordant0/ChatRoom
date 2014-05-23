@@ -1,0 +1,58 @@
+<h1>Chat Room List</h1>
+
+<button type="button" class="btn btn-primary">Create New Room</button>
+<br>
+<div class="row">
+  <div class="col-lg-2">
+    <div class="room-window">
+      <table class='table table-striped'>
+        <tr>
+          <th><b>Name</b></th>
+          <td></td>
+          <td></td>
+        </tr>
+       
+        <% @rooms.each do |room| %>
+          <tr>
+            <td><%= room.name %></td>
+            <td><%= button_to 'Go to Room', room_path(room), method: "get", class: "btn btn-xs btn-success", type: "button" %></td>
+            <td><%= button_to 'Delete Room', room_path(room), method: "delete", class: "btn btn-xs btn-danger"  %></td>
+          </tr>
+        <% end %>
+      </table>
+    </div>
+  </div>
+</div>
+<br>
+<b>Current Users: <%= @current_user.name %><b>
+<br>
+<button type="button" class="btn btn-sm btn-danger">Log out</button>
+<br><br>
+
+<div id='new-room-form' class='modal fade bs-example-modal-lg' >
+  <div class='modal-dialog modal-lg'>
+    <div class='modal-content' >
+      <%= render 'form' %>
+    </div>
+  </div>    
+</div>
+
+<div id='log-out-form' class='modal fade bs-example-modal-sm' >
+  <div class='modal-dialog modal-sm'>
+    <div class='modal-content' >
+      <%= form_tag session_path, class: "form-horizontal" do |f| %>
+        <div class="form-group">
+          <label for="name" class="col-sm-2 control-label">Name</label>
+          <div class="col-sm-6">
+            <input class="form-control" id="name" name="name" placeholder="Name">
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="col-sm-offset-2 col-sm-6">
+            <button type="submit" class="btn btn-default">Sign in</button>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>    
+</div>
